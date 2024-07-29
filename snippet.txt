@@ -1,4 +1,4 @@
-<model-viewer src="diamond.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
+<model-viewer src="rect.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="0.25">
     <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
     </div>
