@@ -186,13 +186,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Create and apply the texture
             const texture = await modelViewerTexture1.createTexture(textureUrl);
-            const normal_texture = await modelViewerTexture1.createTexture("Main_Normal.png");
-            
+            const normal_texture = await modelViewerTexture1.createTexture("Material_Texture/Fabric_Towel_01_normal.jpg");
+            const roughtness_texture = await modelViewerTexture1.createTexture("Material_Texture/Fabric_Towel_01_roughness.jpg");
+            const oc_texture = await modelViewerTexture1.createTexture("Material_Texture/Fabric_Towel_01_height1.jpg");
             if (material.pbrMetallicRoughness) {
                 material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
                 material.normalTexture.setTexture(normal_texture);
+                material.pbrMetallicRoughness.metallicRoughnessTexture.setTexture(roughtness_texture);
+                material.occlusionTexture.setTexture(oc_texture);
+
                 const nor_sampler = material.normalTexture.texture.sampler;
-                nor_sampler.setScale({ u: 3, v: 3 });
+                const mr_sampler = material.pbrMetallicRoughness.metallicRoughnessTexture.texture.sampler;
+                const oc_sampler = material.occlusionTexture.texture.sampler;
+
+                mr_sampler.setScale({ u: 4, v: 4 });
+                nor_sampler.setScale({ u: 4, v: 4 });
+                oc_sampler.setScale({ u: 4, v: 4 });
 
             } else {
                 console.error('Material does not support pbrMetallicRoughness');
