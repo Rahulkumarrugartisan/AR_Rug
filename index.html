@@ -10,10 +10,12 @@
 </head>
 
 <body>
+
   <!-- <model-viewer> HTML element -->
-  <model-viewer id="model" src="rect.glb" alt="A 3D model" ar ar-modes="webxr scene-viewer quick-look" camera-controls
+  <model-viewer id="model" src="rug_Models/rect.glb" alt="A 3D model" ar ar-modes="webxr scene-viewer quick-look" camera-controls
     tone-mapping="neutral" poster="poster.webp" shadow-intensity="0.1">
-    <div class="progress-bar hide" slot="progress-bar">
+
+    <div class="progress-bar" slot="progress-bar">
       <div class="update-bar"></div>
     </div>
     <button slot="ar-button" id="ar-button">
@@ -22,78 +24,17 @@
     <div id="ar-prompt">
       <img src="ar_hand_prompt.png">
     </div>
+
   </model-viewer>
 
   <script src="script.js"></script>
 
-
-
   <!-- Loads <model-viewer> for browsers: -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-  <script type="module">
-    document.addEventListener('DOMContentLoaded', () => {
-      const modelViewerTexture1 = document.querySelector("#model");
-
-      modelViewerTexture1.addEventListener("load", async () => {
-        //------------------------------------------------------------------------------------
-        //** get data from URL */
-        //------------------------------------------------------------------------------------
-        // Example URL with encoded fragment
-        const url = 'https://example.com/page#data=value%201&shape=value%202';
-
-        const currentUrl = window.location.href;
-        // Create a URL object
-        const urlObject = new URL(currentUrl);
-
-        // Get the fragment
-        const fragment = urlObject.hash.substring(1); // Remove the '#'
-
-        // Decode and extract parameters
-        const params = new URLSearchParams(fragment);
-
-        const param1 = params.get('data'); // Decodes 'value%201' to 'value 1'
-        const param2 = params.get('shape'); // Decodes 'value%202' to 'value 2'
-
-        console.log('data:', param1);
-        console.log('shape:', param2);
-        //------------------------------------------------------------------------------------
-        //------------------------------------------------------------------------------------
-
-        // URL of the new texture
-        const newTextureUrl = param1.toString();
-
-        try {
-          // Ensure the model is fully loaded
-          const model = modelViewerTexture1.model;
-          if (!model) {
-            console.error('Model not found');
-            return;
-          }
-
-          // Assume you want to apply the texture to the first material
-          const material = model.materials[0];
-          if (!material) {
-            console.error('Material not found');
-            return;
-          }
-
-          // Create and apply the texture
-          const texture = await modelViewerTexture1.createTexture(newTextureUrl);
-          if (material.pbrMetallicRoughness) {
-            material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
-          } else {
-            console.error('Material does not support pbrMetallicRoughness');
-          }
-        } catch (error) {
-          console.error('An error occurred while applying the texture:', error);
-        }
-      });
-    });
-  </script>
-
+  <script type="module" src="feature.js">  </script>
 
 </body>
+
 
 </html>
