@@ -230,7 +230,7 @@ modelViewerTexture2.addEventListener("ar-status", (event)=>
     const ct = modelViewerTexture2.getCameraOrbit();
     console.log("camera : "+ ct.radius);
     const info = document.querySelector("#info");
-    info.innerHTML = `<p>Scale: ${modelViewerTexture2.scale}</p>`;
+    info.innerHTML = `<p>Entered</p><p>Scale: ${modelViewerTexture2.scale}</p>`;
     }
 });
 
@@ -239,7 +239,7 @@ modelViewerTexture2.addEventListener('scale-change', () => {
     const ct = modelViewerTexture2.getCameraOrbit();
     console.log("camera : "+ ct.radius);
     const info = document.querySelector("#info");
-    info.innerHTML = `<p>Scale: ${modelViewerTexture2.scale}</p>`;
+    info.innerHTML = `<p>Scale</p><p>Scale: ${modelViewerTexture2.scale}</p>`;
   });
 
 
