@@ -229,7 +229,7 @@ modelViewerTexture2.addEventListener("camera-change", ()=>
     const ct = modelViewerTexture2.getCameraOrbit();
     console.log("camera : "+ ct.radius);
     const info = document.querySelector("#info");
-    info.innerHTML = `<p>Distance: ${ct.radius.toFixed(2)}</p>`;
+    info.innerHTML = `<p>Scale: ${modelViewerTexture2.scale}</p>`;
 });
 
 
