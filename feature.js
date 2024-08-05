@@ -136,7 +136,7 @@ function change_Rug_Shape(shapename, model) {
 
 function cameratest(modeviewer)
 {
-    console.log("camera: "+ modeviewer.getCameraOrbit());
+    console.log("camera test: "+ modeviewer.getCameraOrbit());
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -205,9 +205,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const mr_sampler = material.pbrMetallicRoughness.metallicRoughnessTexture.texture.sampler;
                 const oc_sampler = material.occlusionTexture.texture.sampler;
 
-                mr_sampler.setScale({ u: 6, v: 6 });
-                nor_sampler.setScale({ u: 6, v: 6 });
-                oc_sampler.setScale({ u: 6, v: 6 });
+                mr_sampler.setScale({ u: 12, v: 12 });
+                nor_sampler.setScale({ u: 12, v: 12 });
+                oc_sampler.setScale({ u: 12, v: 12 });
                 
                
             } else {
