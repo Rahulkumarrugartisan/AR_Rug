@@ -224,12 +224,22 @@ function cameratest(modeviewer)
     
 }
 const modelViewerTexture2 = document.querySelector("#model");
-modelViewerTexture2.addEventListener("camera-change", ()=>
+modelViewerTexture2.addEventListener("ar-status", (event)=>
 {
+    if (event.detail.status === 'enter') {
     const ct = modelViewerTexture2.getCameraOrbit();
     console.log("camera : "+ ct.radius);
     const info = document.querySelector("#info");
     info.innerHTML = `<p>Scale: ${modelViewerTexture2.scale}</p>`;
+    }
 });
+
+modelViewerTexture2.addEventListener('scale-change', () => {
+    // Update the scale display when the scale changes
+    const ct = modelViewerTexture2.getCameraOrbit();
+    console.log("camera : "+ ct.radius);
+    const info = document.querySelector("#info");
+    info.innerHTML = `<p>Scale: ${modelViewerTexture2.scale}</p>`;
+  });
 
 
