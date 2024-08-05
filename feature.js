@@ -134,10 +134,7 @@ function change_Rug_Shape(shapename, model) {
 
 }
 
-function cameratest(modeviewer)
-{
-    console.log("camera test: "+ modeviewer.getCameraOrbit());
-}
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const modelViewerTexture1 = document.querySelector("#model");
@@ -219,8 +216,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    modelViewerTexture1.addEventListener('camera-change', cameratest(modelViewerTexture1));
+   
 });
 
+function cameratest(modeviewer)
+{
+    
+}
+const modelViewerTexture2 = document.querySelector("#model");
+modelViewerTexture2.addEventListener("camera-change", ()=>
+{
+    const ct = modelViewerTexture2.getCameraOrbit();
+    console.log("camera : "+ ct.radius);
+    const info = document.querySelector("#info");
+    info.innerHTML = `<p>Distance: ${ct.radius.toFixed(2)}</p>`;
+});
 
 
