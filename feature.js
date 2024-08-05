@@ -230,7 +230,7 @@ modelViewerTexture2.addEventListener("ar-status", (event)=>
     const ct = modelViewerTexture2.getCameraOrbit();
     console.log("camera : "+ ct.radius);
     const info = document.querySelector("#info");
-    info.innerHTML = `<p>${event.detail.status}</p><p>Scale: ${modelViewerTexture2.scale}</p>`;
+    info.innerHTML = `<p>${event.detail.status}</p><p>Scale: ${modelViewerTexture2.model.scale}</p>`;
     //}
 });
 
@@ -239,7 +239,25 @@ modelViewerTexture2.addEventListener('ar-tracking', (event) => {
     const ct = modelViewerTexture2.getCameraOrbit();
     console.log("camera : "+ ct.radius);
     const info = document.querySelector("#info");
-    info.innerHTML = `<p>${event.detail.status}</p><p>Scale</p><p>Scale: ${modelViewerTexture2.scale}</p>`;
+    info.innerHTML = `<p>${event.detail.status}</p><p>Scale</p><p>Scale: ${modelViewerTexture2.model.scale}</p>`;
+  });
+
+  modelViewerTexture2.addEventListener('camera-change', (event) => {
+    // Update the scale display when the scale changes
+    const ct = modelViewerTexture2.getCameraOrbit();
+    console.log("camera : "+ ct.radius);
+    const info = document.querySelector("#info");
+
+    const model = modelViewerTexture2.model;
+    if (model) {
+      const scale = model.scale;
+      info.innerHTML = `<p>${event.detail.status}</p><p>Scale Is model</p><p>Scale: ${modelViewerTexture2.scale}</p>`;
+    }
+    else{
+        info.innerHTML = `<p>${event.detail.status}</p><p>Scale</p><p>Scale: ${modelViewerTexture2.scale}</p>`;
+    }
+    
+    
   });
 
 
