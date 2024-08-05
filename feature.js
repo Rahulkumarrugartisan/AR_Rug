@@ -230,16 +230,16 @@ modelViewerTexture2.addEventListener("ar-status", (event)=>
     const ct = modelViewerTexture2.getCameraOrbit();
     console.log("camera : "+ ct.radius);
     const info = document.querySelector("#info");
-    info.innerHTML = `<p>${event}</p><p>Scale: ${modelViewerTexture2.scale}</p>`;
+    info.innerHTML = `<p>${event.detail.status}</p><p>Scale: ${modelViewerTexture2.scale}</p>`;
     //}
 });
 
-modelViewerTexture2.addEventListener('ar-tracking', () => {
+modelViewerTexture2.addEventListener('ar-tracking', (event) => {
     // Update the scale display when the scale changes
     const ct = modelViewerTexture2.getCameraOrbit();
     console.log("camera : "+ ct.radius);
     const info = document.querySelector("#info");
-    info.innerHTML = `<p>Scale</p><p>Scale: ${modelViewerTexture2.scale}</p>`;
+    info.innerHTML = `<p>${event.detail.status}</p><p>Scale</p><p>Scale: ${modelViewerTexture2.scale}</p>`;
   });
 
 
