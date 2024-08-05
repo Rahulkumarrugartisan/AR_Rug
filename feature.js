@@ -90,7 +90,7 @@ async function loadImageAsTexture(url) {
 }
 
 function change_Rug_Shape(shapename, model) {
-    console.log("shape name: " + shapename);
+    //console.log("shape name: " + shapename);
     if (shapename === "rectangle!") {
         model.src = "rug_Models/rect.glb";
         console.log("shape changed to: " + shapename);
@@ -134,6 +134,11 @@ function change_Rug_Shape(shapename, model) {
 
 }
 
+function cameratest(modeviewer)
+{
+    console.log("camera: "+ modeviewer.getCameraOrbit());
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const modelViewerTexture1 = document.querySelector("#model");
 
@@ -160,8 +165,9 @@ document.addEventListener('DOMContentLoaded', () => {
         //const blob = await response.blob();
         //const blobUrl = URL.createObjectURL(blob);
 
-        console.log('data:', param1);
-        console.log('shape:', param2);
+      
+        //console.log('data url:', param1);
+        //console.log('shape:', param2);
         change_Rug_Shape(param2, modelViewerTexture1);
         //------------------------------------------------------------------------------------
         //------------------------------------------------------------------------------------
@@ -202,7 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 mr_sampler.setScale({ u: 6, v: 6 });
                 nor_sampler.setScale({ u: 6, v: 6 });
                 oc_sampler.setScale({ u: 6, v: 6 });
-
+                
+               
             } else {
                 console.error('Material does not support pbrMetallicRoughness');
             }
@@ -211,4 +218,9 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('An error occurred while applying the texture:', error);
         }
     });
+
+    modelViewerTexture1.addEventListener('camera-change', cameratest(modelViewerTexture1));
 });
+
+
+
