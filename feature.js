@@ -226,15 +226,15 @@ function cameratest(modeviewer)
 const modelViewerTexture2 = document.querySelector("#model");
 modelViewerTexture2.addEventListener("ar-status", (event)=>
 {
-    if (event.detail.status === 'enter') {
+    //if (event.detail.status === 'enter') {
     const ct = modelViewerTexture2.getCameraOrbit();
     console.log("camera : "+ ct.radius);
     const info = document.querySelector("#info");
-    info.innerHTML = `<p>Entered</p><p>Scale: ${modelViewerTexture2.scale}</p>`;
-    }
+    info.innerHTML = `<p>${event}</p><p>Scale: ${modelViewerTexture2.scale}</p>`;
+    //}
 });
 
-modelViewerTexture2.addEventListener('scale-change', () => {
+modelViewerTexture2.addEventListener('ar-tracking', () => {
     // Update the scale display when the scale changes
     const ct = modelViewerTexture2.getCameraOrbit();
     console.log("camera : "+ ct.radius);
