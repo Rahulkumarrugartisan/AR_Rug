@@ -344,7 +344,7 @@ function updateScaleDisplay() {
     console.log('get scale function test inner output: ', scale);
     if (scale) {
         const scalePercentage = (scale.x * 100).toFixed(0); // Assuming uniform scaling
-        scale_temp=(scalePercentage-100);
+        scale_temp=(scalePercentage-100)/100;
         scaleDisplay.textContent = `Scale: ${scale_temp}%`;
     }
 }
