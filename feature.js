@@ -336,15 +336,17 @@ modelViewerTexture2.addEventListener('ar-tracking', (event) => {
 //------------------------------------------------------------------------------------------------------
 const modelViewer = document.querySelector('#model');
 const scaleDisplay = document.querySelector('#info');
+let scale_temp = 0;
 console.log('get scale function test outer ');
 function updateScaleDisplay() {
     console.log('get scale function test inner');
-  const scale = modelViewer.cModelScale;
-  console.log('get scale function test inner output: ',scale);
-  if (scale) {
-    const scalePercentage = (scale.x * 100).toFixed(0); // Assuming uniform scaling
-    scaleDisplay.textContent = `Scale: ${scalePercentage}%`;
-  }
+    const scale = modelViewer.cModelScale;
+    console.log('get scale function test inner output: ', scale);
+    if (scale) {
+        const scalePercentage = (scale.x * 100).toFixed(0); // Assuming uniform scaling
+        scale_temp=(scalePercentage-100);
+        scaleDisplay.textContent = `Scale: ${scale_temp}%`;
+    }
 }
 
 modelViewer.addEventListener('load', updateScaleDisplay);
